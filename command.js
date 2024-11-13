@@ -1,4 +1,4 @@
-import { TOKEN, CLIENT_ID } from './config.js';
+import { TOKEN, CLIENT_ID,GUILD_ID } from './config.js';
 
 import { REST, Routes } from 'discord.js';
 
@@ -14,7 +14,7 @@ const rest = new REST({ version: '10' }).setToken(TOKEN);
 try {
   console.log('Started refreshing application (/) commands.');
 
-  await rest.put(Routes.applicationCommands(CLIENT_ID), { body: commands });
+  await rest.put(Routes.applicationCommands(CLIENT_ID,GUILD_ID), { body: commands });
 
   console.log('Successfully reloaded application (/) commands.');
 } catch (error) {
